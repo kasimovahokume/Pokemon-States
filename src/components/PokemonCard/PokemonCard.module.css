@@ -1,0 +1,101 @@
+.card {
+  width: 180px;
+  height: 280px;
+  background-color: #fff9f0; /* bisque rəngi */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  position: relative; 
+  overflow: hidden; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+
+.blob {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: absolute;
+  filter: blur(20px); 
+  opacity: 0.6;
+  z-index: 2; 
+  animation: blobAnimation 4s infinite alternate;
+}
+
+
+.blob1 { background-color: #ffb84c; top: -50px; left: -50px; animation-delay: 0s; }
+.blob2 { background-color: #f266ab; top: 100px; right: -80px; animation-delay: 1s; }
+.blob3 { background-color: #a459d1; bottom: -60px; left: 60px; animation-delay: 2s; }
+.blob4 { background-color: #2cd3e1; top: 200px; left: -100px; animation-delay: 3s; }
+
+
+@keyframes blobAnimation {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.1) translate(10px, 10px); }
+  100% { transform: scale(1) translate(0, 0); }
+}
+
+
+.blurer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(50px); 
+  -webkit-backdrop-filter: blur(50px); 
+  border-radius: 20px;
+  z-index: 3; 
+}
+
+/* 4. "Article" (Məzmun Layı) */
+.content {
+  width: 90%;
+  height: 90%;
+  background-color: rgba(255, 255, 255, 0.6); 
+  border-radius: 15px;
+  position: relative;
+  z-index: 4; /* Ən yuxarı lay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); 
+}
+
+/* Məzmun Elementlərinin Dizaynı */
+.pokemonImage {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.pokemonName {
+  font-family: 'Caveat', cursive;
+  font-size: 2.8rem;
+  color: #333;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.pokemonType {
+  font-size: 1rem;
+  color: #666;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.addButton {
+  margin-top: auto; 
+}
