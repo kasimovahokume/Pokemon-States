@@ -1,42 +1,50 @@
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+.memberRow {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 12px 20px; /* 8px-dən 12px-ə qaldırın */
+  margin: 10px auto;
+  border-radius: 12px;
+  border: 1px solid #ddd; /* #eee-dən #ddd-ə dəyişdirin (cədvəllə eyni) */
+  width: 100%;
+  max-width: 850px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-sizing: border-box;
 }
 
-.pokedexSection {
+.pokemonInfo {
   display: flex;
-  flex-wrap: wrap; /* Kartlar sığmayanda avtomatik aşağı düşsün */
-  justify-content: center;
-  gap: 25px;
-  margin-bottom: 40px;
+  align-items: center;
+  gap: 15px;
 }
 
-.teamList {
-  width: 100%;
-  max-width: 700px;
-  margin-bottom: 30px;
+.miniImg {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
 }
 
-.divider {
-  width: 100%;
-  border: 0;
-  height: 2px;
-  background: #eee;
-  margin: 40px 0;
+.name {
+  font-weight: 600;
+  color: #333;
+  text-transform: capitalize;
+  font-size: 15px;
 }
 
-/* Kiçik bir 'puls' animasiyası təyin edirik */
-@keyframes levelUp {
-  0% { transform: scale(1); background-color: #f8f9fa; }
-  50% { transform: scale(1.02); background-color: #d4edda; } /* Yaşıl rəng */
-  100% { transform: scale(1); background-color: #f8f9fa; }
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-/* Say artanda bu klassı tətbiq edəcəyik */
-.levelUpAnimation {
-  animation: levelUp 0.3s ease-out;
+.countText {
+  font-weight: bold;
+  min-width: 25px;
+  text-align: center;
+  color: #d63384;
+}
+
+.removeBtn {
+  margin-left: 10px;
 }

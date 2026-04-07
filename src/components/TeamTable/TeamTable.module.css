@@ -1,0 +1,82 @@
+.tableContainer {
+  width: 100%;
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 0;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-sizing: border-box;
+}
+
+.tableTitle {
+  color: #d63384;
+  padding: 20px;
+  margin: 0;
+  font-size: 1.3rem;
+  text-align: center;
+  background: #fdfdfd;
+}
+
+.statsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.statsTable th {
+  background-color: #f8f9fa;
+  padding: 15px;
+  text-align: center;
+  border-bottom: 2px solid rgba(214, 51, 132, 0.1);
+  color: #555;
+  font-weight: bold;
+}
+
+.statsTable td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.nameCell {
+  color: #2d8a6e;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.countCell {
+  color: #d63384;
+  font-weight: bold;
+}
+
+.typeBadge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.fire { background: #ff7675; }
+.water { background: #74b9ff; }
+.grass { background: #55efc4; }
+.electric { background: #f1c40f; color: #333; }
+.poison { background: #a29bfe; }
+.normal { background: #bdc3c7; }
+.bug { background: #badc58; }
+.flying { background: #81ecec; }
+
+.totalLabel {
+  text-align: right !important;
+  padding-right: 30px !important;
+  font-weight: bold;
+}
+
+.totalValue {
+  color: #d63384;
+  font-size: 1.2rem;
+  font-weight: bold;
+}

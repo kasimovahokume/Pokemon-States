@@ -1,20 +1,18 @@
 import PropTypes from "prop-types"
 import styles from './ButtonCustom.module.css';
 
-export const ButtonCustom = ({text, onClick,variant})=>{
+export const ButtonCustom = ({text, onClick,variant='add'})=>{
 
+    const buttonClass = `${styles.gradientButton} ${styles[variant]}`;
     return(
-        <button
-        className={`${styles.btn} ${styles[variant]}`}
-        onClick={onClick}
-        >
-            {text}
-        </button>
+        <button className={buttonClass} onClick={onClick}>
+      <span className={styles.gradientText}>{text}</span>
+    </button>
     )
 }
 
-ButtonCustom.protoTypes ={
+ButtonCustom.propTypes ={
     text: PropTypes.string.isRequired,
     onClick:PropTypes.func.isRequired,
-    variant: PropTypes.string
+    variant: PropTypes.oneOf(['add', 'plus', 'minus', 'remove'])
 }
