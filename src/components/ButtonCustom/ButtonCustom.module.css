@@ -1,0 +1,91 @@
+/* ButtonCustom.module.css */
+
+.gradientButton {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  font-weight: bold;
+  padding: 0; /* Variantlar daxilində idarə olunur */
+}
+
+.gradientButton:hover {
+  transform: scale(1.05);
+}
+
+.gradientButton:active {
+  transform: scale(0.95);
+}
+
+/* Dönən rəngli fon */
+.gradientButton::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -2;
+  filter: blur(5px);
+  animation: rotate 3s linear infinite;
+  background: conic-gradient(
+    from 0deg,
+    #ff9ff3,
+    #feca57,
+    #ff6b6b,
+    #ff9ff3
+  );
+}
+
+/* İç fon */
+.gradientButton::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #fff0f6;
+  border-radius: 47px;
+  z-index: -1;
+}
+
+.gradientText {
+  z-index: 1;
+  background: linear-gradient(45deg, #d63384, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 11px;
+}
+
+/* Variantlar */
+.add {
+  padding: 8px 14px;
+  width: 100%;
+}
+
+.plus {
+  width: 32px;
+  height: 32px;
+}
+.plus::before { background: conic-gradient(#4ecdc4, #45b7d1, #4ecdc4); }
+
+.minus {
+  width: 32px;
+  height: 32px;
+}
+.minus::before { background: conic-gradient(#feca57, #ff9ff3, #feca57); }
+
+.remove {
+  padding: 6px 14px;
+}
+.remove::before { background: #ff6b6b; }
+.remove::after { background: #fff0f0; }
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
