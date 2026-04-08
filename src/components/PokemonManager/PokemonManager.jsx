@@ -6,27 +6,31 @@ import { TeamTable } from '../TeamTable';
 import styles from './PokemonManager.module.css';
 
 export const PokemonManager = () => {
-  // Komandanı (sebeti) burada saxlayırıq
   const [team, setTeam] = useState([]);
+  const [bgClass, setBgClass] = useState('');
 
-  // 1. Pokemon Əlavə Etmə Məntiqi (Sənin yazdığın addPokemon-un təkmilləşmiş versiyası)
   const addPokemon = (p) => {
     const isExisting = team.find((m) => m.id === p.id);
+    const soundName = p.name.toLowerCase();
+  const audio = new Audio(`/assets/sounds/${soundName}.mp3`);
+  
+  audio.play().catch(error => {
+    console.error("Səs faylı tapılmadı:", soundName, error);
+
+    new Audio('/assets/sounds/pika.mp3').play();
+  });
+  setBgClass(p.type.toLowerCase());
 
     if (isExisting) {
-      // YALNIZ 2-ci dəfə basanda bu alert çıxacaq
-      alert(`Bu Pokemon artıq siyahıdadır! Sayı dəyişmək üçün aşağıdakı "+" düyməsindən istifadə edin.`);
+      alert(`Bu Pokemon artıq siyahıdadır!`);
       return; 
     }
 
-    // İlk dəfə basanda ALERT OLMADAN birbaşa əlavə edirik
+    
     setTeam([...team, { ...p, count: 1 }]);
     
-    // Konsolda yoxlamaq üçün saxlaya bilərsən
-    console.log(`${p.name} əlavə olundu.`);
   };
 
-  // Sayı artırmaq üçün ayrıca funksiya (+ düyməsi üçün)
   const increaseCount = (id) => {
     setTeam((prevTeam) =>
       prevTeam.map((m) =>
@@ -35,7 +39,7 @@ export const PokemonManager = () => {
     );
   };
 
-  // Sayı azaltmaq üçün (- düyməsi üçün)
+
   const decreaseCount = (id) => {
     setTeam((prevTeam) =>
       prevTeam.map((m) =>
@@ -44,42 +48,38 @@ export const PokemonManager = () => {
     );
   };
 
-  // 3. Pokemonu Tamamilə Silmə Funksiyası
+
   const removePokemon = (id) => {
     setTeam((prevTeam) => prevTeam.filter((m) => m.id !== id));
   };
 
  return (
     <div className={styles.container}>
-      {/* 1. Pokemon Kartları Siyahısı */}
       <div className={styles.pokedexSection}>
         {pokemonData.map((pokemon) => (
           <PokemonCard
             key={pokemon.id}
             pokemon={pokemon}
-            onAdd={() => addPokemon(pokemon)} // Kartdakı düymə
+            onAdd={() => addPokemon(pokemon)}
           />
         ))}
       </div>
 
       <hr className={styles.divider} />
 
-      {/* 2. Səbət (Team) Hissəsi */}
       <div className={styles.teamSection}>
         <div className={styles.teamList}>
           {team.map((member) => (
             <TeamMember
               key={member.id}
               member={member}
-              onIncrease={() => increaseCount(member.id)} // Səbətdəki + düyməsi
-              onDecrease={() => decreaseCount(member.id)} // Səbətdəki - düyməsi
-              onRemove={() => removePokemon(member.id)}   // Səbətdəki Remove düyməsi
+              onIncrease={() => increaseCount(member.id)} 
+              onDecrease={() => decreaseCount(member.id)} 
+              onRemove={() => removePokemon(member.id)}   
             />
           ))}
         </div>
       </div>
-
-      {/* 3. Statistika Cədvəli */}
       <TeamTable team={team} />
     </div>
   );
