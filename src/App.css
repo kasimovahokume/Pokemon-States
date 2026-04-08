@@ -7,3 +7,8 @@
 body{
     background-color: rgb(250, 218, 224);
 }
+.titleApp{
+    text-align: center;
+    color:  #df63ca;
+    margin: 20px 0 ;
+}

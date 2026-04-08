@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import styles from './TeamTable.module.css';
 
 export const TeamTable = ({ team }) => {
-  // Ümumi Pokemon sayını hesablayırıq
+
   const totalCount = team.reduce((acc, member) => acc + member.count, 0);
 
-  if (team.length === 0) return null; // Siyahı boşdursa cədvəl görünməsin
+  if (team.length === 0) return null; 
 
   return (
     <div className={styles.tableContainer}>
@@ -13,7 +13,7 @@ export const TeamTable = ({ team }) => {
       <table className={styles.statsTable}>
         <thead>
           <tr>
-            <th>Pokémon</th>
+            <th>Pokemon</th>
             <th>Type</th>
             <th>Quantity</th>
           </tr>
@@ -33,7 +33,7 @@ export const TeamTable = ({ team }) => {
         </tbody>
         <tfoot>
           <tr>
-            <td colSpan="2" className={styles.totalLabel}>Total Pokémon:</td>
+            <td colSpan="2" className={styles.totalLabel}>Total Pokemon:</td>
             <td className={styles.totalValue}>{totalCount}</td>
           </tr>
         </tfoot>

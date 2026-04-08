@@ -1,5 +1,3 @@
-/* ButtonCustom.module.css */
-
 .gradientButton {
   position: relative;
   background: transparent;
@@ -12,7 +10,7 @@
   justify-content: center;
   transition: transform 0.2s ease;
   font-weight: bold;
-  padding: 0; /* Variantlar daxilində idarə olunur */
+  padding: 0; 
 }
 
 .gradientButton:hover {
@@ -23,7 +21,7 @@
   transform: scale(0.95);
 }
 
-/* Dönən rəngli fon */
+/*kartdaki buttonun kenar rengi */
 .gradientButton::before {
   content: "";
   position: absolute;
